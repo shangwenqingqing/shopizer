@@ -85,7 +85,7 @@ public class CustomerLoginController extends AbstractController {
             }
             
             if(!customerModel.getMerchantStore().getCode().equals(storeCode)) {
-            	jsonObject.setStatus(AjaxResponse.RESPONSE_STATUS_FAIURE);
+            	jsonObject.setStatus(AjaxResponse.RESPONSE_STATUS_SUCCESS);
             	return jsonObject;
             }
             
