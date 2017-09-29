@@ -1,0 +1,1 @@
+nohup mvn spring-boot:run > shopizer.log 2>&1 &
