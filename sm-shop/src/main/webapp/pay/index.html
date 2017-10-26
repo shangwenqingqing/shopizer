@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>支付页面</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <style>
+        img {
+            cursor: pointer;
+        }
+        #blick{
+            position: fixed;
+            right: 30px;
+            top: 30px;
+            z-index: 99999;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+
+    <a class="btn btn-primary"  id="blick" href="../../">返回首页</a>
+
+    <div class="row selectOne">
+        <div class="col-md-12">
+            <div class="h4 text-center selectOne">选择支付方式</div>
+        </div>
+    </div>
+
+    <div class="row selectTwo">
+        <div class="col-md-6">
+            <div style="line-height: 60px;" class="h4 text-right">
+                <button type="button" class="return btn btn-primary" style="margin-right: 100px;">返回</button>
+                银行卡支付
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img style="width: 60px;height: 60px;margin-bottom: 8px;" src="img/ylPay.png"
+                 class="img-fluid rounded float-left d-block" alt="银行卡支付">
+        </div>
+    </div>
+
+    <div class="row selectThree">
+        <div class="col-md-6">
+            <div style="line-height: 60px;" class="h4 text-right">
+                <button type="button" class="return btn btn-primary" style="margin-right: 100px;">返回</button>
+                支付宝扫码支付
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img style="width: 60px;height: 60px;margin-bottom: 8px;" src="img/ali.png"
+                 class="img-fluid rounded float-left d-block" alt="银行卡支付">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3 selectOne">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <h5>银行卡支付</h5>
+                    <div style="width: 100px;height: 100px;margin: 0px auto;">
+                        <img id="imgOne" src="img/ylPay.png" class="img-fluid rounded mx-auto d-block" alt="银行卡支付">
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <h5>支付宝扫码支付</h5>
+                    <div style="width: 100px;height: 100px;margin: 0px auto;">
+                        <img id="imgTwo" id="imgTwo" src="img/ali.png" class="img-fluid rounded mx-auto d-block"
+                             alt="支付宝扫码支付">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 offset-md-3 selectTwo">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-check text-center">
+                        <label class="form-check-label">
+                            <input class="form-check-input bankCardType " type="radio" name="bankCardType"
+                                   id="bankCardType1" value="DEBIT_CARD" checked>
+                            Debit Card
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-check text-center">
+                        <label class="form-check-label">
+                            <input class="form-check-input bankCardType" type="radio" name="bankCardType"
+                                   id="bankCardType2" value="CREDIT_CARD">
+                            Credit Card
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="DebitCard">
+                <form>
+                    <div class="form-group row">
+                        <label for="number" class="col-sm-4 col-form-label">Card Number</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="number" placeholder="Card Number">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="bankCode" class="col-sm-4 col-form-label">Bank Code</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="bankCode" placeholder="Bank Code">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="holderName" class="col-sm-4 col-form-label">Holder Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="holderName" placeholder="Holder Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="holderIdNumber" class="col-sm-4 col-form-label">ID Number</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="holderIdNumber" placeholder="ID Number">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="holderPhone" class="col-sm-4 col-form-label">Bank Reserved Phone</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="holderPhone" placeholder="Bank Reserved Phone">
+                        </div>
+                    </div>
+
+
+                    <div id="CreditCard">
+                        <div class="form-group row">
+                            <label for="cvv2" class="col-sm-4 col-form-label">CVV2</label>
+                            <div class="col-sm-8">
+                                <input id="cvv2" type="text" class="form-control" placeholder="CVV2">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="validDate" class="col-sm-4 col-form-label">Valid Date</label>
+                            <div class="col-sm-8">
+                                <input id="validDate" type="text" class="form-control" placeholder="Valid Date">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="verify_code" class="col-sm-4 col-form-label">Verify Code</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="verify_code" placeholder="Verify Code">
+                        </div>
+                        <div class="col-sm-4">
+                            <button id="Verify" type="button" class="btn btn-primary">Verify</button>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 text-center">
+                            <button id="Confirm" type="button" class="btn btn-primary">Confirm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-6 offset-md-3 selectThree">
+            <div id="code" style="width: 200px;margin: 40px auto;"></div>
+            <form id="form">
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" placeholder="name" id="name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">ID Number</label>
+                    <div class="col-sm-9">
+                        <input id="idNumber" type="text" class="form-control" placeholder="ID Number" >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Phone</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" placeholder="Phone" id="phone">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12 text-center">
+                        <button type="button" class="btn btn-primary" id="ScanConfirm">Confirm</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/lrsjng.jquery-qrcode/0.14.0/jquery-qrcode.js"></script>
+<script>
+    $(function () {
+        function select(data) {
+            switch (data) {
+                case 1:
+                    $(".selectOne").show();
+                    $(".selectTwo").hide();
+                    $(".selectThree").hide();
+                    break;
+                case 2:
+                    $(".selectTwo").show();
+                    $(".selectOne").hide();
+                    $(".selectThree").hide();
+                    break;
+                case 3:
+                    $(".selectThree").show();
+                    $(".selectOne").hide();
+                    $(".selectTwo").hide();
+                    break;
+            }
+        }
+
+        function bankSelect(data) {
+            switch (data) {
+                case 'CREDIT_CARD':
+                    $("#CreditCard").show();
+                    $("#DebitCard").show();
+                    break;
+                case 'DEBIT_CARD':
+                    $("#CreditCard").hide();
+                    $("#DebitCard").show();
+                    break;
+            }
+        }
+        function formselect(data) {
+            switch (data) {
+                case 1:
+                    $("#form").show();
+                    $("#code").hide();
+                    break;
+                case 2:
+                    $("#form").hide();
+                    $("#code").show();
+                    break;
+            }
+        }
+        formselect(1);
+        select(1);
+        bankSelect("DEBIT_CARD");
+
+        $("#imgOne").on("click", function () {
+            select(2);
+        });
+        $(".return").on("click", function () {
+            select(1);
+        });
+        $("#imgTwo").on("click", function () {
+            select(3);
+        });
+        $(".bankCardType").on("click", function (e) {
+            bankSelect(e.target.value);
+        })
+
+
+        $("#Verify").on("click", function () {
+
+            var bankcard = new Object();
+            bankcard.number = $("#number").val();
+            bankcard.holderIdNumber = $("#holderIdNumber").val();
+            bankcard.holderName = $("#holderName").val();
+            bankcard.holderPhone = $("#holderPhone").val();
+            bankcard.holderIdType = "IDENTITY_CARD";
+            bankcard.cvv2 = $("#cvv2").val();
+            bankcard.validDate = $("#validDate").val();
+            bankcard.bankCode = $("#bankCode").val().toUpperCase();
+
+            $.ajax("placeOrder", {
+                type: 'POST',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(bankcard),
+                dataType: "text",
+                success: function (data) {
+                    alert(data);
+                    console.log(data);
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        })
+
+        $("#Confirm").on("click", function () {
+
+            var bankcard = {
+                "code": $("verify_code").val()
+            };
+            $.ajax("confirm", {
+                type: 'POST',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(bankcard),
+                dataType: "text",
+                success: function (data) {
+                    alert(data);
+                    console.log(data);
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        })
+
+        $("#ScanConfirm").on("click", function () {
+            var bankcard = new Object();
+            bankcard.idNumber = $("#idNumber").val();
+            bankcard.name = $("#name").val();
+            bankcard.phone = $("#phone").val();
+            $.ajax({
+                type: 'POST',
+                url: "scanPay",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(bankcard),
+                dataType:"text",
+                success: function (data) {
+                    formselect(2);
+                    $("#code").qrcode({
+                        render: "canvas", //也可以替换为table
+                        width: 100,
+                        height: 100,
+                        text:data
+                    });
+                    console.log(data);
+                },
+                error: function (err) {
+                    alert(err);
+                    console.log(err);
+                }
+            });
+        });
+    })
+</script>
+
+
+</html>
