@@ -23,6 +23,12 @@
     </properties>
 
     <dependencies>
+        <!-- pg-java -->
+        <dependency>
+            <groupId>cn.payingcloud</groupId>
+            <artifactId>pg-java</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
         <!-- sm-core -->
         <dependency>
